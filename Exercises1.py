@@ -2,6 +2,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt 
 import time
+import pandas as pd
 
 
 print("Exercise 1.4.1")
