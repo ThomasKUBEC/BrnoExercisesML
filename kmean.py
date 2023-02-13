@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt 
 import math
 import regex as re
+import sklearn
 from sklearn.datasets import make_blobs
 from sklearn.preprocessing import StandardScaler
 
