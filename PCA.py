@@ -79,20 +79,37 @@ X_train, X_test, y_train, y_test = train_test_split(X2D,Y2T,test_size=0.3)
 knn1=KNeighborsClassifier(n_neighbors = 3)
 knn1.fit(X_train,y_train)
 Ypred=knn1.predict(X_test)
-print(Ypred)
-
 cm = confusion_matrix(y_test,Ypred)
 display = ConfusionMatrixDisplay(confusion_matrix=cm)
 display.plot()
 plt.show()
 
+
+
+
+
+# Now do the same (data set split, KNN, confusion matrix), but for PCA-transformed data (1st two principal components, i.e., first two columns). 
+# Compare the results with full dataset
 X_train, X_test, y_train, y_test = train_test_split(Xpca,y,test_size=0.3)
 
 knn1=KNeighborsClassifier(n_neighbors = 3)
 knn1.fit(X_train,y_train)
 Ypred=knn1.predict(X_test)
-print(Ypred)
+cm = confusion_matrix(y_test,Ypred)
+display = ConfusionMatrixDisplay(confusion_matrix=cm)
+display.plot()
+plt.show()
 
+
+
+
+
+# Now do the same, but use only 2-dimensional data of original X (first two columns)
+X_train, X_test, y_train, y_test = train_test_split(X[:,0:1],y,test_size=0.3)
+
+knn1=KNeighborsClassifier(n_neighbors = 3)
+knn1.fit(X_train,y_train)
+Ypred=knn1.predict(X_test)
 cm = confusion_matrix(y_test,Ypred)
 display = ConfusionMatrixDisplay(confusion_matrix=cm)
 display.plot()
