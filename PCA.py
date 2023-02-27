@@ -86,5 +86,16 @@ display = ConfusionMatrixDisplay(confusion_matrix=cm)
 display.plot()
 plt.show()
 
+X_train, X_test, y_train, y_test = train_test_split(Xpca,y,test_size=0.3)
+
+knn1=KNeighborsClassifier(n_neighbors = 3)
+knn1.fit(X_train,y_train)
+Ypred=knn1.predict(X_test)
+print(Ypred)
+
+cm = confusion_matrix(y_test,Ypred)
+display = ConfusionMatrixDisplay(confusion_matrix=cm)
+display.plot()
+plt.show()
 
 
